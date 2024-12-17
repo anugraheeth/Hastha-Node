@@ -1,0 +1,90 @@
+
+<html>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+	font-weight:bold;
+	padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #29104E;
+  color: white;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+
+.dt-buttons {
+  display: inline-block !important;
+  margin-bottom: 15px !important;
+  padding-top: 5px !important;
+ 
+}
+.dt-buttons .dt-button {
+  background: #1976d2 none repeat scroll 0 0 !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  margin-right: 3px !important;
+  padding: 5px 15px !important;
+}
+.dt-buttons .dt-button:hover {
+  background: #2f3d4a none repeat scroll 0 0 !important;
+}
+
+</style>
+<body>
+    
+        <div class="card-body">
+            <form action="e/index.php">
+                <input type="submit" value="Send SMS" class="dt-buttons" />
+            </form>
+            <div class="card-body">
+                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Building number</th>
+                            <th>Name Of Business</th>
+                            <th>Type Of Business</th>
+                            <th>Business Owner</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+    <% if (results.length > 0) { %>
+        <% results.forEach(row => { %>
+                <tr>
+                    <td><a href="../details.php?id=${row.uid}"><%= row['building_number'] %></a></td>
+                    <td><a href="../details.php?id=${row.uid}"><%= row['name_of_businness'] %></a></td>
+                    <td><a href="../details.php?id=${row.uid}"><%= row['type_of_businnes'] %></a></td>
+                    <td><a href="../details.php?id=${row.uid}"><%= row['name_of_business_owner'] %></a></td>
+                    <td><a href="../details.php?id=${row.uid}"><%= row['phone'] %></a></td>
+                </tr>
+       <% }); %>
+    <% } else { %>
+        <h3>No Data Found</h3>
+    <% } %>
+                    </tbody>
+                </table>
+                <form action="e/index.php">
+                    <input type="submit" value="Send SMS" class="button button1" />
+                </form>
+            </div>
+        </div>
+</body>
+</html>

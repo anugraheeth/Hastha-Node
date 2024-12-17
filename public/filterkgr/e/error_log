@@ -1,0 +1,9 @@
+[25-Mar-2019 11:26:21 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 16
+[26-Mar-2019 16:41:59 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 16
+[28-Mar-2019 18:16:43 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 16
+[28-Mar-2019 18:16:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 16
+[28-Mar-2019 18:49:25 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 39
+[28-Mar-2019 19:48:51 UTC] PHP Parse error:  syntax error, unexpected 'per_details' (T_STRING) in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 16
+[28-Mar-2019 20:03:28 UTC] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, object given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 47
+[28-Mar-2019 20:06:07 UTC] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, object given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 47
+[28-Mar-2019 20:11:31 UTC] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, object given in /home/elephant/public_html/kidangoor/hastha/main_kgrpy/Hastha_Feb25/filterkgr/e/index.php on line 47

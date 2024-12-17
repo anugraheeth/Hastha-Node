@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" width="100%">
+        <tr>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Blood Group</th>
+            <th>Relationship with Family Head</th>
+            <th>House Number</th>
+            <th>Marital Status</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Religion</th>
+            <th>Caste</th>
+        </tr>
+
+        <% for (var i = 0; i < info.length; i++) { %>
+            <tr>
+                <td><%- info[i].Name %></td>
+                <td><%- info[i].DOB %></td>
+                <td><%- info[i].Gender %></td>
+                <td><%- info[i].BloodGroup %></td>
+                <td><%- info[i]['Relationship with Family Head'] %></td>
+                <td><%- info[i]['House Number'] %></td>
+                <td><%- info[i]['Marital Status'] %></td>
+                <td><%- info[i]['Phone Number'] %></td>
+                <td><%- info[i].Email %></td>
+                <td><%- info[i].Religion %></td>
+                <td><%- info[i].Caste %></td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/">LOGOUT</a>
+</body>
+</html>

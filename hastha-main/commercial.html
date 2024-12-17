@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="a">
+
+        <title>Non - Residential Form</title>
+
+        <!-- Font Icon -->
+        <link rel="stylesheet" href="/form_new/fonts/material-icon/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="/form_new/vendor/nouislider/nouislider.min.css">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <!-- Main css -->
+        <link rel="stylesheet" href="/form_new/css/style.css">
+        
+        <style>
+.button {
+  display: inline-block;
+  border-radius: 6px;
+  background-color: #4966b1;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  float: right;
+  
+  
+  overflow: auto;
+  white-space: nowrap;
+  margin:0px auto;
+  
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-left: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+</style>
+    </head>
+
+    <body>
+
+        <div class="main">
+            <div class="container">
+                <form method="POST" id="signup-form" class="signup-form" action="#">
+                    <div>
+                        <h3>Non Residential Details</h3>
+                        <fieldset>
+                           <button class="button" onclick="location.href='/dashboard';" style="vertical-align:middle"><span>Back to Dashboard</span></button>
+                            <h2>Non Residential Details</h2>
+                            <p class="desc">Please enter the details</p>
+                            <div class="fieldset-content">
+                                <!-- First Row -->
+                                <div class="form-row">
+                                    <div class="form-flex">
+                                        <div class="form-group">
+                                            <label class="form-label" data-name="build_no">Building No</label>
+                                            <input type="text" name="build_no"  required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" data-name="private_or_non">Whether Private or Public</label>
+                                            <div class="p-t-10">
+                                                <label class="radio-container m-r-45">Private
+                                                <input type="radio" checked="checked" name="private_or_non" value="Private">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                <label class="radio-container">Public
+                                                <input type="radio" name="private_or_non" value="Public">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Second Row -->
+                                <div class="form-row">
+                                    <div class="form-flex">
+                                        <div class="form-group">
+                                            <h3 style="display:block;">Details of Owner</h3>
+                                        </div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group">
+                                            <div class="form-input">
+                                                <label class="form-label" data-name="owner_name">Name of Owner</label>
+                                                <input type="text" name="owner_name" pattern="[A-Za-z ]{1,100}" title="Enter name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-input">
+                                                <label class="form-label" data-name="owner_cont">Contact Number</label>
+                                                <input type="text" name="owner_cont" pattern="[0-9]{10}" title="Enter 10 digit phone number ">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-input">
+                                                <label class="form-label" data-name="owner_add">Address</label>
+                                                <input type="text" name="owner_add">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row" style="margin-top:10px;">
+                                    <div class="form-flex">
+                                            <div class="form-group">
+                                            <label class="form-label" data-name="Taxe">Tax Exemption</label>
+                                            <div class="p-t-10">
+                                                <label class="radio-container m-r-45">Yes
+                                                <input type="radio" checked="checked" name="taxe" value="Yes">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                <label class="radio-container">No
+                                                <input type="radio" name="taxe" value="No">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            </div>
+                                        </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                
+                                
+                                <!-- Fourth Row, Ration Card -->
+                                <div class="form-row">
+                                    <div class="form-flex">
+                                        <div class="form-group">
+                                            <div class="form-input">
+                                                <label class="form-label" data-name="category">Category</label>
+                                                <div class="p-t-10">
+                                                    <label class="radio-container m-r-45">Commercial
+                                                        <input type="radio" checked="checked" name="category" value="Commercial" data-show="commercial">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container m-r-45">Religious
+                                                        <input type="radio" data-show="religious" name="category" value="Religious">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container">Educational
+                                                        <input type="radio" name="category" data-show="educational" value="Educational">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container">Hospital
+                                                        <input type="radio" name="category" data-show="hospital" value="Hospital">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <label class="radio-container">Industrial
+                                                        <input type="radio" name="category" data-show="industry" value="Industrial">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                            </div></div>
+                                            
+                         
+                                </div>
+                                
+                                
+                                
+                                <div class="category" data-name="commercial" data-parent="category">
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="name_of_b_owner">Name of Business Owner</label>
+                                                    <input type="text" name="name_of_b_owner">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="contact_no">Contact Number</label>
+                                                    <input type="text" name="contact_no_c" pattern="[0-9]{10}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="name_of_business">Name of Business</label>
+                                                    <input type="text" name="name_of_business">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="type_of_business">Type of Business</label>
+                                                    <input type="text" name="type_of_business">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="adress">Address</label>
+                                                    <input type="text" name="adress">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sixth Row, Family insurance -->
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="license">Do you have license</label>
+                                                    <div class="p-t-10">
+                                                        <label class="radio-container m-r-45">Yes
+                                                        <input type="radio" checked="checked" data-show="yes" name="license" value="Yes">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                        <label class="radio-container">No
+                                                        <input type="radio" data-show="no" name="license" value="No">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-shown-for="yes" data-controller="license" data-name="license_number">License Number</label>
+                                                    <input type="text" name="license_number" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Seventh row, Gas -->
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="no_of_employees">Number of Employees</label>
+                                                    <input type="text" name="no_of_employees" pattern="[0-9]{1,3}" title="Enter count in digits">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="year_business_start">Year in which Business Started.</label>
+                                                    <input type="text" name="year_business_start" pattern="[0-9]{4}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="form-label">Building Details</label>
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="built_year">Built Year</label>
+                                                    <input type="text" name="built_year" pattern="[0-9]{4}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="built_up_area">Built up Area (Sq. Mtr)</label>
+                                                    <input type="text" name="built_up_area" pattern="[0-9]{1,}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="no_of_floors">No of floors</label>
+                                                    <input type="text" name="no_of_floors" pattern="[0-9]{1,}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="no_of_rooms">No of Rooms</label>
+                                                    <input type="text" name="no_of_rooms" pattern="[0-9]{1,}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="no_of_toilets">No of Toilets</label>
+                                                    <input type="text" name="no_of_toilets" pattern="[0-9]{1,}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="roof_type">Roof Type</label>
+                                                    <select name="roof_type" class="select-box">
+                                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                                <option value="Concrete">Concrete</option>
+                                                <option value="Sheet">Sheet</option>
+                                                <option value="Tile">Tile</option>
+                                                <option value="Leaf">Leaf</option>
+                                                </select>
+                                                    <div class="select-dropdown"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="roof_status">Roof Status</label>
+                                                    <div class="p-t-10">
+                                                        <select name="roof_status" class="select-box">
+                                                <option disabled="disabled" selected="selected">Choose option</option>
+                                                <option value="Complete">Complete</option>
+                                                <option value="Incomplete">Incomplete</option>
+                                                <option value="Damaged">Damaged</option>
+
+                                                
+                                            </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="wall_type">Wall type</label>
+                                                    <div class="p-t-10">
+                                                        <select name="wall_type" class="select-box">
+                                                <option disabled="disabled" selected="selected">Choose option</option>
+                                                <option value="Brick">Brick</option>
+                                                <option value="Cement">Cement</option>
+                                               
+
+                                                
+                                            </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="wall_status">Wall Status</label>
+                                                    <div class="p-t-10">
+                                                        <select name="wall_status" class="select-box">
+                                                <option disabled="disabled" selected="selected">Choose option</option>
+                                                <option value="Complete">Complete</option>
+                                                <option value="Incomplete">Incomplete</option>
+                                                <option value="Damaged">Damaged</option>
+
+                                                
+                                            </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="basement">Foundation</label>
+                                                    <select name="basement" class="select-box">
+                                                <option disabled="disabled" selected="selected">Choose option</option>
+                                                <option value="Rock">Rock</option>
+                                                <option value="Concrete">Concrete</option>
+                                            </select>
+
+                                                    <div class="select-dropdown"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="front">Frontage</label>
+                                                    <div class="p-t-10">
+                                                        <label class="radio-container m-r-45">Normal
+                                                    <input type="radio" checked="checked" name="front" value="Normal">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        <label class="radio-container m-r-45">Tiles
+                                                    <input type="radio" name="front" value="Tiles">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        <label class="radio-container m-r-45">Chips
+                                                    <input type="radio" name="front" value="Chips">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        <label class="radio-container">Others
+                                                    <input type="radio" name="front" value="Others">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Eighth row, Well -->
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="drinking_yes">Drinking Water Availability</label>
+                                                    <div class="p-t-10">
+                                                        <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="drinking_yes" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        <label class="radio-container m-r-45">No
+                                                    <input type="radio" name="drinking_yes" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="water_src">Drinking water source</label>
+                                                    <div class="p-t-10">
+                                                        <label class="radio-container m-r-45">Well 
+                                                <input type="checkbox"  name="water_src[]" value="Well">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                        <label class="radio-container m-r-45">Pipe
+                                                <input type="checkbox" name="water_src[]" value="Pipe">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                        <label class="radio-container m-r-45">Borewell
+                                                <input type="checkbox" name="water_src[]" value="Borewell">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                        <label class="radio-container m-r-45">Others 
+                                                <input type="checkbox" name="water_src[]" value="Others">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="cctv_avail">CCTV available</label>
+                                                    <div class="p-t-10">
+                                                        <label class="radio-container m-r-45">Yes
+                                                <input type="radio" checked="checked" name="cctv_avail" value="Yes">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                        <label class="radio-container">No
+                                                <input type="radio" name="cctv_avail" value="No">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="post_office">Post Office</label>
+                                                    <input type="text" name="post_office">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label">Pin Code</label>
+                                                    <input type="text" name="pin_code" pattern="[0-9]{6}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- fifteenth row, solar energy -->
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="front_road">Name Of Road In Front</label>
+                                                    <input type="text" name="front_road">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="main_road">Nearest Main Road</label>
+                                                    <input type="text" name="main_road">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ninteenth row, Disaster -->
+                                    <!-- Twentith row, Waterfront -->
+                                    <div class="form-row">
+                                        <div class="form-flex">
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="waterfront">Nearest Waterfront</label>
+                                                    <input type="text" name="waterfront">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="waterfront_dist">Distance Waterfront</label>
+
+                                        <select name="waterfront_dist" class="select-box">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option value="1">Less than 1 km </option>
+                                            <option value="2">1 - 2 km</option>
+                                            <option value="3">2 - 3 km</option>
+                                            <option value="4">3 - 5 km</option>
+                                            <option value="6">More than 5 km</option>
+                                            
+                                        </select>
+
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-input">
+                                                    <label class="form-label" data-name="emergency_safety_system">Emergency Safety system</label>
+                                                    <div class="p-t-10">
+                                                        <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="emergency_safety_system" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        <label class="radio-container">No
+                                                    <input type="radio" name="emergency_safety_system" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category" style="display:none;" data-name="religious" data-parent="category">
+                                    <div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Institution</label>
+                                                        <input type="text" name="name_of_inst_r">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label" data-name="name_of_inst_r">Name of Head of Institution</label>
+                                                        <input type="text" name="name_of_head_of_inst_r">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Address</label>
+                                                        <input type="text" name="address_r">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Phone</label>
+                                                        <input type="text" name="phone_r">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Type of religious activity</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Church
+                                                            <input type="radio" checked="checked" name="type_of_religious_activity" value="Church">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                            <label class="radio-container m-r-45">Temple
+                                                            <input type="radio" name="type_of_religious_activity" value="Temple">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                            <label class="radio-container m-r-45">Mosque
+                                                            <input type="radio" name="type_of_religious_activity" value="Mosque">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                            <label class="radio-container m-r-45">Other
+                                                            <input type="radio" name="type_of_religious_activity" value="Other">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group if-religious-other" style="display:none;">
+                                                    <div class="form-input">
+                                                        <label class="form-label">If Other, Specify</label>
+                                                        <input type="text" name="other_religious">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category" style="display:none;" data-name="educational">
+                                    <div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Institution</label>
+                                                        <input type="text" name="name_of_inst_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Head of Institution</label>
+                                                        <input type="text" name="name_of_head_of_inst_e">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Address</label>
+                                                        <input type="text" name="address_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Phone</label>
+                                                        <input type="text" name="phone_e">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Number of Employees</label>
+                                                        <input type="text" name="number_of_employees_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Number of Students</label>
+                                                        <input type="text" name="number_of_students_e">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <label class="form-label">Building Details</label>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Built Year</label>
+                                                        <input type="text" name="built_year_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Built up Area</label>
+                                                        <input type="text" name="built_up_area_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">No of floors</label>
+                                                        <input type="text" name="no_of_floors_e">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">No of Rooms</label>
+                                                        <input type="text" name="no_of_rooms_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">No of Toilets</label>
+                                                        <input type="text" name="no_of_toilets_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Roof Type</label>
+                                                        <select name="roof_type_e" class="select-box">
+                                                    <option disabled="disabled" selected="selected" name="roof_type">Choose option</option>
+                                                    <option value="Concrete">Concrete</option>
+                                                    <option value="Sheet">Sheet</option>
+                                                </select>
+                                                        <div class="select-dropdown"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Roof Status</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Complete
+                                                    <input type="radio" checked="checked" name="roof_status_e" value="Complete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">Incomplete
+                                                    <input type="radio" name="roof_status_e" value="Incomplete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Wall type</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Brick
+                                                    <input type="radio" checked="checked" name="wall_type_e" value="Brick">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">Cement
+                                                    <input type="radio" name="wall_type_e" value="Cement">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Wall Status</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Complete
+                                                    <input type="radio" checked="checked" name="wall_status_e" value="Complete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">Incomplete
+                                                    <input type="radio" name="wall_status_e" value="Incomplete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Eighth row, Well -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Drinking Water Availability</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="drinking_yes_e" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container m-r-45">No
+                                                    <input type="radio" name="drinking_yes_e" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Drinking water source</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Well 
+                                                <input type="checkbox"  name="water_src_e[]" value="Well">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Pipe
+                                                <input type="checkbox" name="water_src_e[]" value="Pipe">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Borewell
+                                                <input type="checkbox" name="water_src_e[]" value="Borewell">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Others 
+                                                <input type="checkbox" name="water_src_e[]" value="Others">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">CCTV available</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                <input type="radio" checked="checked" name="cctv_avail_e" value="Yes">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                            <label class="radio-container">No
+                                                <input type="radio" name="cctv_avail_e" value="No">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Post Office</label>
+                                                        <input type="text" name="post_office_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Pin Code</label>
+                                                        <input type="text" name="pin_code_e">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- fifteenth row, solar energy -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name Of Road In Front</label>
+                                                        <input type="text" name="front_road_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Nearest Main Road</label>
+                                                        <input type="text" name="main_road_e">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Ninteenth row, Disaster -->
+                                        <!-- Twentith row, Waterfront -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Nearest Waterfront</label>
+                                                        <input type="text" name="waterfront_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Distance Waterfront</label>
+                                                        <input type="text" name="waterfront_dist_e">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Emergency Safety system</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="emergency_safety_system_e" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">No
+                                                    <input type="radio" name="emergency_safety_system_e" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category" style="display:none;" data-name="hospital">
+                                    <div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Hospital</label>
+                                                        <input type="text" name="name_of_inst_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Head of Institution</label>
+                                                        <input type="text" name="name_of_head_of_inst_h">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Address</label>
+                                                        <input type="text" name="address_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Phone</label>
+                                                        <input type="text" name="phone_h">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Number of Employees</label>
+                                                        <input type="text" name="number_of_employees_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Number of Beds</label>
+                                                        <input type="text" name="number_of_beds_h">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+                                        <label class="form-label">Building Details</label>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Built Year</label>
+                                                        <input type="text" name="built_year_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Built up Area</label>
+                                                        <input type="text" name="built_up_area_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">No of floors</label>
+                                                        <input type="text" name="no_of_floors_h">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">No of Rooms</label>
+                                                        <input type="text" name="no_of_rooms_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">No of Toilets</label>
+                                                        <input type="text" name="no_of_toilets_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Roof Type</label>
+                                                        <select name="roof_type_h" class="select-box">
+                                                    <option disabled="disabled" selected="selected" name="roof_type">Choose option</option>
+                                                    <option value="Concrete">Concrete</option>
+                                                    <option value="Sheet">Sheet</option>
+                                                </select>
+                                                        <div class="select-dropdown"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Roof Status</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Complete
+                                                    <input type="radio" checked="checked" name="roof_status_h" value="Complete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">Incomplete
+                                                    <input type="radio" name="roof_status_h" value="Incomplete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Wall type</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Brick
+                                                    <input type="radio" checked="checked" name="wall_type_h" value="Brick">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">Cement
+                                                    <input type="radio" name="wall_type_h" value="Cement">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Wall Status</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Complete
+                                                    <input type="radio" checked="checked" name="wall_status_h" value="Complete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">Incomplete
+                                                    <input type="radio" name="wall_status_h" value="Incomplete">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Eighth row, Well -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Drinking Water Availability</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="drinking_yes_h" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container m-r-45">No
+                                                    <input type="radio" name="drinking_yes_h" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Drinking water source</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Well 
+                                                <input type="checkbox"  name="water_src_h[]" value="Well">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Pipe
+                                                <input type="checkbox" name="water_src_h[]" value="Pipe">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Borewell
+                                                <input type="checkbox" name="water_src_h[]" value="Borewell">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Others 
+                                                <input type="checkbox" name="water_src_h[]" value="Others">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">CCTV available</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                <input type="radio" checked="checked" name="cctv_avail_h" value="Yes">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                            <label class="radio-container">No
+                                                <input type="radio" name="cctv_avail_h" value="No">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Post Office</label>
+                                                        <input type="text" name="post_office_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Pin Code</label>
+                                                        <input type="text" name="pin_code_h">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- fifteenth row, solar energy -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name Of Road In Front</label>
+                                                        <input type="text" name="front_road_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Nearest Main Road</label>
+                                                        <input type="text" name="main_road_h">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Ninteenth row, Disaster -->
+                                        <!-- Twentith row, Waterfront -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Nearest Waterfront</label>
+                                                        <input type="text" name="waterfront_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Distance Waterfront</label>
+                                                        <input type="text" name="waterfront_dist_h">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Emergency Safety system</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="emergency_safety_system_h" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">No
+                                                    <input type="radio" name="emergency_safety_system_h" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category" style="display:none;" data-name="industry">
+                                    <div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Industry Owner</label>
+                                                        <input type="text" name="name_of_b_owner_i">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Contact Number</label>
+                                                        <input type="text" name="contact_no_i">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name of Industry</label>
+                                                        <input type="text" name="name_of_industry">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Type of Industry</label>
+                                                        <input type="text" name="type_of_industry">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Address</label>
+                                                        <input type="text" name="adress_i">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Number of Employees</label>
+                                                        <input type="text" name="number_of_employees_i">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Eighth row, Well -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Drinking Water Availability</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="drinking_yes_i" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container m-r-45">No
+                                                    <input type="radio" name="drinking_yes_i" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Drinking water source</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Well 
+                                                <input type="checkbox"  name="water_src_i[]" value="Well">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Pipe
+                                                <input type="checkbox" name="water_src_i[]" value="Pipe">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Borewell
+                                                <input type="checkbox" name="water_src_i[]" value="Borewell">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                            <label class="radio-container m-r-45">Others 
+                                                <input type="checkbox" name="water_src_i[]" value="Others">
+                                                <span class="checkboxmark"></span>
+                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">CCTV available</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                <input type="radio" checked="checked" name="cctv_avail_i" value="Yes">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                            <label class="radio-container">No
+                                                <input type="radio" name="cctv_avail_i" value="No">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Post Office</label>
+                                                        <input type="text" name="post_office_i">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Pin Code</label>
+                                                        <input type="text" name="pin_code_i">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- fifteenth row, solar energy -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Name Of Road In Front</label>
+                                                        <input type="text" name="front_road_i">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Nearest Main Road</label>
+                                                        <input type="text" name="main_road_i">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Ninteenth row, Disaster -->
+                                        <!-- Twentith row, Waterfront -->
+                                        <div class="form-row">
+                                            <div class="form-flex">
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Nearest Waterfront</label>
+                                                        <input type="text" name="waterfront_i">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Distance Waterfront</label>
+                                                        <input type="text" name="waterfront_dist_i">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-input">
+                                                        <label class="form-label">Emergency Safety system</label>
+                                                        <div class="p-t-10">
+                                                            <label class="radio-container m-r-45">Yes
+                                                    <input type="radio" checked="checked" name="emergency_safety_system_i" value="Yes">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                            <label class="radio-container">No
+                                                    <input type="radio" name="emergency_safety_system_i" value="No">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <!-- Twentyoneth row, Rainwater harvesting -->
+                        </fieldset>
+                        <!-- Page 1 end, Family details form end -->
+
+
+
+                        <h3>Review details</h3>
+                        <fieldset>
+                            <h2>Review Details</h2>
+                            <p class="desc">Please review the details you have entered.</p>
+                            <div class="fieldset-content review-details">
+                                <div class="form-row" id="review_details_show"></div>
+                                <!--
+                                <div class="form-row">
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Building Number
+                                        </div>
+                                        <div class="form-group" data-name="build_no"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Whether Private or Public
+                                        </div>
+                                        <div class="form-group" data-name="private_or_non"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Name of Owner
+                                        </div>
+                                        <div class="form-group" data-name="owner_name"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Contact Number
+                                        </div>
+                                        <div class="form-group" data-name="owner_cont"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Address
+                                        </div>
+                                        <div class="form-group" data-name="owner_add"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Category
+                                        </div>
+                                        <div class="form-group" data-name="category"></div>
+                                    </div>
+                                    <div class="form-flex if-rental">
+                                        <div class="form-group title">
+                                            Owner Name
+                                        </div>
+                                        <div class="form-group" data-name="owner_name"></div>
+                                    </div>
+                                    <div class="form-flex if-rental">
+                                        <div class="form-group title">
+                                            Owner Contact
+                                        </div>
+                                        <div class="form-group" data-name="owner_cont"></div>
+                                    </div>
+                                    <div class="category-select" data-name="commercial">
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Name of Business Owner
+                                            </div>
+                                            <div class="form-group" data-name="name_of_b_owner"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Contact number
+                                            </div>
+                                            <div class="form-group" data-name="contact_no_c"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Name of Business
+                                            </div>
+                                            <div class="form-group" data-name="name_of_business"></div>
+                                        </div>
+                                        <div class="form-flex if-ration">
+                                            <div class="form-group title">
+                                                Type of Business
+                                            </div>
+                                            <div class="form-group" data-name="type_of_business"></div>
+                                        </div>
+                                        <div class="form-flex if-ration">
+                                            <div class="form-group title">
+                                                Address
+                                            </div>
+                                            <div class="form-group" data-name="address"></div>
+                                        </div>
+                                        <div class="form-flex if-ration">
+                                            <div class="form-group title">
+                                                Do you have license
+                                            </div>
+                                            <div class="form-group" data-name="license"></div>
+                                        </div>
+                                        <div class="form-flex if-ration">
+                                            <div class="form-group title">
+                                                License Number
+                                            </div>
+                                            <div class="form-group" data-name="license_number"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Number of Employees
+                                            </div>
+                                            <div class="form-group" data-name="no_of_employees"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Year in which Business Started.
+                                            </div>
+                                            <div class="form-group" data-name="year_business_start"></div>
+                                        </div>
+                                        <div class="form-flex if-elect">
+                                            <div class="form-group title">
+                                                Building Details
+                                            </div>
+                                            <div class="form-group"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Built Year
+                                            </div>
+                                            <div class="form-group" data-name="built_year"></div>
+                                        </div>
+                                        <div class="form-flex if-gas">
+                                            <div class="form-group title">
+                                                Built up Area (Sq. Mtr.)
+                                            </div>
+                                            <div class="form-group" data-name="built_up_area"></div>
+                                        </div>
+                                        <div class="form-flex if-gas">
+                                            <div class="form-group title">
+                                                No of floors
+                                            </div>
+                                            <div class="form-group" data-name="no_of_floors"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                No of Rooms
+                                            </div>
+                                            <div class="form-group" data-name="no_of_rooms"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                No of Toilets
+                                            </div>
+                                            <div class="form-group" data-name="no_of_toilets"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Roof Type
+                                            </div>
+                                            <div class="form-group" data-name="roof_type"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Roof Status
+                                            </div>
+                                            <div class="form-group" data-name="roof_status"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Wall type
+                                            </div>
+                                            <div class="form-group" data-name="wall_type"></div>
+                                        </div>
+                                        <div class="form-flex">
+                                            <div class="form-group title">
+                                                Wall Status
+                                            </div>
+                                            <div class="form-group" data-name="wall_status"></div>
+                                        </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Foundation
+                                        </div>
+                                        <div class="form-group" data-name="no_of_rooms"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            No of Toilets
+                                        </div>
+                                        <div class="form-group" data-name="no_of_toilets"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Roof Type
+                                        </div>
+                                        <div class="form-group" data-name="roof_type"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Roof Status
+                                        </div>
+                                        <div class="form-group" data-name="roof_status"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Wall Type
+                                        </div>
+                                        <div class="form-group" data-name="wall_type"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Wall Status
+                                        </div>
+                                        <div class="form-group" data-name="wall_status"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Foundation
+                                        </div>
+                                        <div class="form-group" data-name="basement"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Frontage
+                                        </div>
+                                        <div class="form-group" data-name="front"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Post Office
+                                        </div>
+                                        <div class="form-group" data-name="post_office"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Pin Code
+                                        </div>
+                                        <div class="form-group" data-name="pin_code"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Solar Energy Availability
+                                        </div>
+                                        <div class="form-group" data-name="solar"></div>
+                                    </div>
+                                    <div class="form-flex if-solar">
+                                        <div class="form-group title">
+                                            Solar Capacity
+                                        </div>
+                                        <div class="form-group" data-name="solar_cap"></div>
+                                    </div>
+                                    <div class="form-flex if-solar">
+                                        <div class="form-group title">
+                                            Solar Cost
+                                        </div>
+                                        <div class="form-group" data-name="solar_cost"></div>
+                                    </div>
+                                    <div class="form-flex if-solar">
+                                        <div class="form-group title">
+                                            Solar Scheme/Non-Scheme
+                                        </div>
+                                        <div class="form-group" data-name="solar_scheme"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            CCTV Availability
+                                        </div>
+                                        <div class="form-group" data-name="cctv"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            DTH/Cable TV Connectivity
+                                        </div>
+                                        <div class="form-group" data-name="cable"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Computer Availability
+                                        </div>
+                                        <div class="form-group" data-name="computer"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Whether in a Residents' Association
+                                        </div>
+                                        <div class="form-group" data-name="res_asso"></div>
+                                    </div>
+                                    <div class="form-flex res-available">
+                                        <div class="form-group title">
+                                            Name of Residents' Association
+                                        </div>
+                                        <div class="form-group" data-name="resident_association_name"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Name of Road in Front
+                                        </div>
+                                        <div class="form-group" data-name="front_road"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Nearest Main Road
+                                        </div>
+                                        <div class="form-group" data-name="main_road"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Disaster's Affected
+                                        </div>
+                                        <div class="form-group" data-name="disaster"></div>
+                                    </div>
+                                    <div class="form-flex disaster-available">
+                                        <div class="form-group title">
+                                            Disasters occured
+                                        </div>
+                                        <div class="form-group" data-name="disaster_occured"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Nearest Waterfront
+                                        </div>
+                                        <div class="form-group" data-name="waterfront"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Distance Waterfront
+                                        </div>
+                                        <div class="form-group" data-name="waterfront_dist"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Waste Management
+                                        </div>
+                                        <div class="form-group" data-name="waste_manage"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Rainwater Harvesting
+                                        </div>
+                                        <div class="form-group" data-name="rainwater"></div>
+                                    </div>
+                                    <div class="form-flex rainwater-available">
+                                        <div class="form-group title">
+                                            Capacity
+                                        </div>
+                                        <div class="form-group" data-name="rainwater_cap"></div>
+                                    </div>
+                                    <div class="form-flex">
+                                        <div class="form-group title">
+                                            Biogas Available
+                                        </div>
+                                        <div class="form-group" data-name="biogas"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        -->
+                        </fieldset>
+
+                        <h3>Employee Details</h3>
+                        <fieldset>
+                            <h2>Employee Details</h2>
+                            <p class="desc">Enter Employee  details.</p>
+                            <div class="fieldset-content">
+                                <div align="right" style="margin-bottom:5px;">
+                                    <button type="button" name="add" id="add" class="btn custom btn--green">Add</button>
+                                </div>
+                                <div id="user_dialog_member_details" title="Add Data" style="width: 100%;">
+                                    <div class="card card-4">
+                                        <div class="card-body">
+                                            <br/>
+                                            <h3 align="center">Add Employee Details</a>
+                                            </h3><br />
+                                            <br/>
+                                            <br/>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Enter Name</label>
+                                                            <input type="text" name="first_name" id="first_name" class="form-control input--style-4" required/>
+                                                            <span id="error_first_name" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Enter Date Of Birth</label>
+                                                            <input type="date" name="dob" id="dob" class="form-control input--style-4" />
+                                                            <span id="error_dob" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Gender </label>
+                                                            <select name="gender" id="gender" class="form-control select-box input--style-4">                
+                                                        <option value="Male" >Male </option>
+                                                        <option value="Female">Female </option>
+                                                        <option value="Trans">Transgender </option>               
+                                                        </select>
+                                                            <span id="error_gender" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Designation</label>
+                                                            <input type="text" name="designation" id="designation" class="form-control input--style-4" />
+                                                            <span id="error_relationship_familyhead" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Phone Number</label>
+                                                            <input type="text" name="phone" id="phone" class="form-control input--style-4" />
+                                                            <span id="error_phone" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Temporary Address</label>
+                                                            <input type="text" name="temp_address" id="temp_address" class="form-control input--style-4" />
+                                                            <span id="error_phone" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                           <label class="radio-container m-r-45">Same as Temporary
+                                                                <input type="checkbox" data-show="perma_address" data-value="yes" name="same_as_temp" value="yes">
+                                                                <span class="checkboxmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" data-name="perma_address">
+                                                        <div class="form-input">
+                                                            <label class="label">Permanent Address</label>
+                                                            <input type="text" name="perma_address" id="perma_address" class="form-control input--style-4" />
+                                                            <span id="error_emailid" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Highest Education Details</label>
+                                                            <select name="educational" id="educational" class="form-control input--style-4 select-box">
+                                                            <option value="Below SSLC" >Below SSLC  </option>
+                                                            <option value="SSLC">SSLC </option>
+                                                            <option value="Plus Two">Plus Two </option>
+                                                            <option value="Diploma">Diploma </option>
+                                                            <option value="ITI">ITI </option>
+                                                            <option value="UG Degree">UG Degree </option>
+                                                            <option value="PG Degree">PG Degree </option>
+                                                            <option value="PHD">PHD </option>
+                                                        </select>
+                                                            <span id="error_educational" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Annual Income</label>
+                                                            <select name="income" id="income" class="form-control input--style-4 select-box">
+                                                            <option value="99999" >Below 1 Lakh  </option>
+                                                            <option value="1000001" >1 Lakh - 2 Lakh  </option>
+                                                            <option value="2000002" >2 Lakh - 5 Lakh  </option>
+                                                            <option value="5000001" >5 Lakh - 10 Lakh  </option>
+                                                            <option value="10000001" >Above 10 Lakh  </option>
+                                                        </select>
+                                                            <span id="error_income" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Aadhar Avail</label>
+                                                            <select name="aadhar_avl" id="aadhar_avl" class="form-control input--style-4 select-box">
+                                                            <option value="Yes" >Yes  </option>
+                                                            <option value="No">No </option>
+                                                        </select>
+                                                            <span id="error_aadhar_avl" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Enter Aadhar Number</label>
+                                                            <input type="text" name="aadhar_num" id="aadhar_num" class="form-control input--style-4" />
+                                                            <span id="error_aadhar_num" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-flex">
+                                                    <div class="form-group">
+                                                        <div class="form-input">
+                                                            <label class="label">Insurance Available  </label>
+                                                            <select name="ins_avl" id="ins_avl" class="form-control input--style-4 select-box">
+                                                            <option value="Yes" >Yes  </option>
+                                                            <option value="No">No </option>
+                                                        </select>
+                                                            <span id="error_ins_avl" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3 input-group">
+                                                <input type="hidden" name="uid" id="uid" value="<?php echo $uid ?> " class="form-control" />
+                                            </div>
+                                            <div class="form-group col-3 input-group" align="center">
+                                                <input type="hidden" name="row_id" id="hidden_row_id" />
+                                                <button type="button" name="save" id="save" class="btn custom btn-info">Save</button>
+                                                <button type="button" name="cancel" id="cancel" class="btn custom btn-info">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table id="user_data" class="w3-table w3-striped">
+                                    <tr>
+                                        <th>First Name</th>
+                                        <th>DOB</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+                        </fieldset>
+                    </div>
+                </form>
+            </div>
+            <div id="dialog_error" title="Error">
+                <p>Please fill all the required fields</p>
+            </div>
+            <div id="action_alert" title="Alert"></div>
+            <div id="dialog_confirm" title="Confirmation">
+                <p>Are you sure you want to confirm ?</p>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="/form_new/vendor/jquery/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="/form_new/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="/form_new/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+        <script src="/form_new/vendor/jquery-steps/jquery.steps.min.js"></script>
+        <script src="/form_new/vendor/minimalist-picker/dobpicker.js"></script>
+        <script src="/form_new/vendor/nouislider/nouislider.min.js"></script>
+        <script src="/form_new/vendor/wnumb/wNumb.js"></script>
+        <script src="/form_new/js/com.js?v=3"></script>
+    </body>
+
+</html>
