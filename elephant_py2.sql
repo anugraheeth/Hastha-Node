@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `elephant_py2`
-CREATE DATABASE IF NOT EXISTS `elephant_py2` DEFAULT CHARACTER SET utf8mb4;
-USE `elephant_py2`;
+CREATE DATABASE IF NOT EXISTS `sql3753054` DEFAULT CHARACTER SET utf8mb4;
+USE `sql3753054`;
 
 
 -- --------------------------------------------------------

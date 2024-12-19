@@ -1,12 +1,18 @@
-var mysql = require("mysql")
-var conn=mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"Password@123!",
-    database:"elephant_py2"
-});
-conn.connect((error)=>{
-    if(error)  throw error;
+var mysql = require("mysql");
+
+var con = mysql.createConnection({
+    host: "sql3.freemysqlhosting.net",
+    user: "sql3753054",      // Your database username
+    password: "Lm831VfT8Q",  // Your database password
+    database: "sql3753054"   // Your database name
 });
 
-module.exports = conn;
+con.connect((error) => {
+    if (error) {
+        console.error("Database connection failed:", error);
+        return;
+    }
+    console.log("Connected to the MySQL database!");
+});
+
+module.exports = con;
